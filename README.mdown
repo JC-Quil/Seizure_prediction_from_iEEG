@@ -1,0 +1,26 @@
+#Epilepsy-seizure prediction from iEEG recordings
+
+### Objective
+The objective is to demonstrate the existence and accurate classification of a pre-seizure brain state in humans suffering from epilepsy from existing intracranial EEG recordings.
+
+This project is the subject of a Kaggle competition proposed by the Melbourne University AES (link: https://www.kaggle.com/c/melbourne-university-seizure-prediction). 
+
+
+### Install
+
+This project requires **Python 2.7** and the following Python libraries installed:
+
+- [NumPy](http://www.numpy.org/)
+- [Pandas](http://pandas.pydata.org)
+- [matplotlib](http://matplotlib.org/)
+- [scikit-learn](http://scikit-learn.org/stable/)
+
+
+### Code
+
+
+## Data
+
+The dataset used in this project is composed of 10 minutes long iEEG signals recorded and sampled simultaneously from 16 electrodes at 400 Hz.
+
+You can find more information on this dataset on the [Kaggle Competition](https://www.kaggle.com/c/melbourne-university-seizure-prediction/data) page.
