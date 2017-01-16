@@ -56,6 +56,7 @@ best_param_set = {
  'colsample_bytree':0.8
 }
 
+
 # Implement a 5-folds cross-validation test
 def xgb_model_cv(param_set):
 
@@ -69,6 +70,7 @@ def xgb_model_cv(param_set):
 	for i in range(5):
 
 		#create the dataframe that will contain all the features and labels
+		### TO CUSTOMIZE FOR EACH MODEL
 		train_df = pd.read_csv("/subsets/train_cv_set"+str(i)+".csv")
 		test_df = pd.read_csv("/subsets/test_cv_set"+str(i)+".csv")
 
@@ -120,6 +122,7 @@ def xgb_model_cv(param_set):
 	
 	return score
 
+
 # Initialize the best_score value for F1_score
 best_score = 0
 
@@ -127,9 +130,10 @@ best_score = 0
 columns  = param_list + metrics_list
 param_search_df = pd.DataFrame(np.zeros((1,len(columns))), columns = columns)
 
+# Implement the selection of the best parameters
 for param in range(len(param_list)): # Iterate through the list of parameters
 	for p_value in param_dic[param_list[param]]: # For each parameter iterate through the list of values
-		param_set = best_param_set
+		param_set = best_param_set.copy()
 		#print param_list[param] [debug]
 		param_set[param_list[param]] = p_value
 
@@ -150,10 +154,11 @@ for param in range(len(param_list)): # Iterate through the list of parameters
 
 		param_search_df = pd.concat([param_search_df, temp_param_search_df])
 
-print "best model", best_param_set # print the best model configuration
+print "best model", best_param_set # print the best parameter configuration
 
 # Record the dataframe collecting the metrics scores in a .csv file
-file_name = "cv_optimization_Model1.csv"
+### TO CUSTOMIZE FOR EACH MODEL
+file_name = "cv_optimization_Model.csv"
 param_search_df.to_csv(file_name)
 
 tot_end = time()

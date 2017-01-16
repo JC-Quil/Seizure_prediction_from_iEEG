@@ -36,7 +36,7 @@ metrics_list = ['roc', 'F1', 'recall']
 param_dic = {
  'max_depth':[6, 7, 8, 9],
  'learning_rate': [0.1, 0.08, 0.06],
- 'n_estimators': [100, 500, 600, 800, 1000],
+ 'n_estimators': [600, 800, 1000],
  'gamma':[0, 0.1, 0.2, 0.3],
  'min_child_weight':[4, 6, 8, 10],
  'subsample':[i/10.0 for i in range(5,9)],
@@ -130,7 +130,7 @@ param_search_df = pd.DataFrame(np.zeros((1,len(columns))), columns = columns)
 # Implement the selection of the best parameters
 for param in range(len(param_list)): # Iterate through the list of parameters
 	for p_value in param_dic[param_list[param]]: # For each parameter iterate through the list of values
-		param_set = best_param_set
+		param_set = best_param_set.copy()
 		#print param_list[param] [debug]
 		param_set[param_list[param]] = p_value
 
