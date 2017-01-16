@@ -28,7 +28,7 @@ tot_start = time()
 train_data_labels_safe = pd.read_csv("train_and_test_data_labels_safe.csv")
 
 # Create two dataframes, for the features and for the labels
-df = pd.read_csv("/subsets/test_set.csv")
+df = pd.read_csv("subsets/test_set.csv")
 df.sort_values('index', axis = 0, inplace=True)
 index_df = pd.DataFrame(df['index']) 
 df = df.set_index('index')
@@ -36,7 +36,7 @@ label_df = df.pop('class')
 
 # Initialize the classifier using the trained model
 ### TO CUSTOMIZE FOR EACH MODEL
-clf = joblib.load("/trained_models/model_1.pkl")
+clf = joblib.load("trained_models/model.pkl")
 
 # Calculate the classifier predictions for all the test subsamples
 y_pred = clf.predict(df)
@@ -78,7 +78,8 @@ for i in range(train_data_labels_safe.shape[0]):
 
 
 # Record the predictions dataframe in a .csv file
-file_name = "/predictions/predictions_model1.csv"
+### TO CUSTOMIZE FOR EACH MODEL
+file_name = "predictions/predictions_model1.csv"
 df_final = pd.DataFrame(dic_final, columns = ['File','Class predict1', 'Proba1', 'Class'], index = range(train_data_labels_safe.shape[0]))
 df_final = df_final.set_index(['File'])
 df_final = df_final.loc[df_final['Class predict1'] != -1]

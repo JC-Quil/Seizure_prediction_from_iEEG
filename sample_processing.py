@@ -1,6 +1,6 @@
 ### This script command the processing of the labeled samples and the feature recording. ###
 ### Use the converter script to load samples, discard non-valid subsamples and to compute the features. ###
-# Requires the dataset to be stored in the folder "dataset" and the folder "features_tables"
+# Require the dataset to be stored in the folder "dataset" and the folder "features_tables"
 # to store the feature tables.
 
 # Import python libraries
@@ -81,7 +81,7 @@ for i in range(3648,6042,1): # Allow to subdivize the sample processing
 			j+=1
 
 # Save the pandas DataFrame containing the features in a .CSV file
-file_name = "/features_tables/feat_dataframe_" + str(i) + ".csv"
+file_name = "features_tables/feat_dataframe_" + str(i) + ".csv"
 feat_dataframe = feat_dataframe.drop('a', axis = 0)
 feat_dataframe = feat_dataframe.set_index('index')
 #print feat_dataframe

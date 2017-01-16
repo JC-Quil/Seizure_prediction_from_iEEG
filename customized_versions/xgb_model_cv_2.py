@@ -68,8 +68,8 @@ def xgb_model_cv(param_set):
 	for i in range(5):
 
 		#create the dataframe that will contain all the features and labels
-		train_df = pd.read_csv("/subsets/train_cv_set2"+str(i)+".csv")
-		test_df = pd.read_csv("/subsets/test_cv_set2"+str(i)+".csv")
+		train_df = pd.read_csv("subsets/train_cv_set2"+str(i)+".csv")
+		test_df = pd.read_csv("subsets/test_cv_set2"+str(i)+".csv")
 
 		train_df.sort_values('index', axis = 0, inplace=True)
 		train_df = train_df.set_index('index')

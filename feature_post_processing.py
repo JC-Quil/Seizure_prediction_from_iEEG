@@ -46,13 +46,13 @@ def make_scatter_plot(X, name):
 
 ######################################
 # Create a list of all the filenames present in the folder containing the features tables
-list_features_tables = sorted(listdir("/features_tables"))
+list_features_tables = sorted(listdir("features_tables"))
 if '.DS_Store' in list_features_tables:
     list_features_tables.remove('.DS_Store')
 #print "list", list_features_tables [debug]
 
 # open the features .csv file and store them in a DataFrame df
-frames = [ pd.read_csv("/features_tables/"+f) for f in list_features_tables ]
+frames = [ pd.read_csv("features_tables/"+f) for f in list_features_tables ]
 df = pd.concat(frames, axis = 0)
 df.sort_values('index', axis = 0, inplace=True)
 
@@ -93,6 +93,6 @@ for i in range(16):
     df_channel = pd.concat([df_scaled, df_labels], axis = 1) # Recombine the class with the dataframe
     
     # Save the pandas DataFrame containing the processed features in a .CSV file for each channels
-    file_name = "/processed_features_tables/processed_features_ch"+ str(i+1) +".csv"
+    file_name = "processed_features_tables/processed_features_ch"+ str(i+1) +".csv"
     df_channel.to_csv(file_name)
 ######################################

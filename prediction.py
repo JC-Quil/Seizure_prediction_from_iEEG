@@ -20,7 +20,7 @@ tot_start = time()
 
 ######################################
 # open the predictions .csv file from 3 models
-frames = [ pd.read_csv("/predictions/predictions_model"+str(f)+".csv") for f in range(1,4,1) ]
+frames = [ pd.read_csv("predictions/predictions_model"+str(f)+".csv") for f in range(1,4,1) ]
 frames[1].drop(['File', 'Class'], axis = 1, inplace = True)
 frames[2].drop(['File', 'Class'], axis = 1, inplace = True)
 
@@ -40,7 +40,7 @@ for i in range(df.shape[0]):
         dic_final['Class'][i] = round(np.mean([df['Proba2'][i], df['Proba2'][i], df['Proba3'][i]]))
 
 # Record the final prediction dataframe in a .csv file
-file_name = "/predictions/predictions.csv"
+file_name = "predictions/predictions.csv"
 df_final = pd.DataFrame(dic_final, columns = ['File', 'Class'], index = range(df.shape[0]))
 df_final = df_final.set_index(['File'])
 df_final.to_csv(file_name)

@@ -25,7 +25,8 @@ tot_start = time()
 
 ######################################
 # Load the train set and create a features and labels dataframe
-df= pd.read_csv("/subsets/train_set.csv")
+### TO CUSTOMIZE FOR EACH MODEL
+df= pd.read_csv("subsets/train_set.csv")
 df.sort_values('index', axis = 0, inplace=True)
 df = df.set_index('index')
 label_df = df.pop('class')
@@ -45,7 +46,7 @@ print "ROC score proba for training set: {:.4f}.".format(roc_auc_score(label_df,
 
 # Save the trained model in the folder "trained_model"
 ### TO CUSTOMIZE FOR EACH MODEL
-joblib.dump(clf, '/trained_models/model_1.pkl', compress=0)
+joblib.dump(clf, 'trained_models/model.pkl', compress=0)
 
 tot_end = time()
 print "Total calculation time {:.4f} seconds.".format(tot_end - tot_start)

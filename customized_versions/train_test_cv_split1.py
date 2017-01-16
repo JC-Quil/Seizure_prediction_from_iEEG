@@ -22,7 +22,7 @@ tot_start = time()
 
 ######################################
 # Create a list of all the filenames present in the folder containing the processed features tables
-list_proc_features_tables = sorted(listdir("/processed_features_tables"))
+list_proc_features_tables = sorted(listdir("processed_features_tables"))
 if '.DS_Store' in list_proc_features_tables:
     list_proc_features_tables.remove('.DS_Store')
 
@@ -48,7 +48,7 @@ for function in functions_1:
 # Assemble each subsamples 16 channels features into one feature row 
 for i in range(len(list_proc_features_tables)):
     f = list_proc_features_tables[i]
-    df_temp = pd.read_csv("/processed_features_tables/"+f)
+    df_temp = pd.read_csv("processed_features_tables/"+f)
     if i == 0:
         df = df_temp.drop(labels = functions_list, axis = 1)
     else:
@@ -101,7 +101,7 @@ for i in range(25):
 
 # Create the test set dataframe and record it in a .csv file 
 test_df = pd.concat([df.iloc[test_p], interictal_df.iloc[test_i]], axis = 0)
-test_file_name = "/subsets/test_set1.csv" 
+test_file_name = "subsets/test_set1.csv" 
 test_df.set_index('index', inplace = True) 
 test_df.to_csv(test_file_name) 
 #print "test_df", test_df.shape [debug]
@@ -143,7 +143,7 @@ for n in range(5):
     train_set_index_list += index_lists[n]
 
 # Create the train set dataframe and record it in a .csv file 
-train_file_name = "/subsets/train_set1.csv" 
+train_file_name = "subsets/train_set1.csv" 
 train_df = df.iloc[list(set(train_set_index_list))]
 train_df.set_index('index', inplace = True) 
 train_df.to_csv(train_file_name) 
@@ -158,8 +158,8 @@ for l in range(5):
     cv_df = cv_df.set_index('index')
     train_df = train_df.set_index('index')
 
-    train_cv_file_name = "/subsets/train_cv_set1"+ str(l)+".csv"
-    test_cv_file_name = "/subsets/test_cv_set1"+ str(l)+".csv"
+    train_cv_file_name = "subsets/train_cv_set1"+ str(l)+".csv"
+    test_cv_file_name = "subsets/test_cv_set1"+ str(l)+".csv"
     train_df.to_csv(train_cv_file_name)
     test_df.to_csv(test_cv_file_name)
 
