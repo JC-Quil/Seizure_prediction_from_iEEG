@@ -1,9 +1,12 @@
 #Epilepsy-seizure prediction from iEEG recordings
 
 ### Objective
-The objective is to demonstrate the existence and accurate classification of a pre-seizure brain state in humans suffering from epilepsy from existing intracranial EEG recordings.
+The objective is to demonstrate the existence and accurate classification of a pre-seizure brain state in 
+humans suffering from epilepsy from existing intracranial EEG recordings.
 
-This project is the subject of a Kaggle competition proposed by the Melbourne University AES (link: https://www.kaggle.com/c/melbourne-university-seizure-prediction). 
+
+This project is the subject of a Kaggle competition proposed by the Melbourne University AES.
+(link: https://www.kaggle.com/c/melbourne-university-seizure-prediction). 
 
 
 ### Install
@@ -14,13 +17,30 @@ This project requires **Python 2.7** and the following Python libraries installe
 - [Pandas](http://pandas.pydata.org)
 - [matplotlib](http://matplotlib.org/)
 - [scikit-learn](http://scikit-learn.org/stable/)
+- [PyWavelets](https://github.com/PyWavelets/pywt)
+- [XGBoost](https://github.com/dmlc/xgboost)
 
 
 ### Code
 
+Code for the project is found in the following scripts:
+- 'sample_processing.py' command the processing of the samples and record the features,
+- 'converter.py' convert a sample into features,
+- 'feature_post_processing.py' command the post-processing of a features table
+- 'train_test_cv_split.py'* split the dataset into train, test and cross-validation subsets
+- 'model_cv.py'* implement cross-validation tests for optimization 
+- 'model_train.py'* train a model on the train set
+- 'model_test.py'* test a trained model on the test set
+- 'predict.py' bagging of 3 models to make predictions on the test set
 
-## Data
+* Those scripts are templates to adapt for each model. Customized versions relative to my project are available
+in the folder 'customized_version'.
+
+You will have to use the included 'train_and_test_data_labels_safe.csv` file in combination with the dataset.
+
+### Data
 
 The dataset used in this project is composed of 10 minutes long iEEG signals recorded and sampled simultaneously from 16 electrodes at 400 Hz.
 
-You can find more information on this dataset on the [Kaggle Competition](https://www.kaggle.com/c/melbourne-university-seizure-prediction/data) page.
+You can find more information on this dataset available on the [Kaggle Competition](https://www.kaggle.com/c/melbourne-university-seizure-prediction/data) page.
+This project is based on the data corresponding to the patient 3.
