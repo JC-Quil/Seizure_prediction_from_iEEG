@@ -33,7 +33,7 @@ Code for the project is found in the following scripts:
 - 'model_test.py'* test a trained model on the test set
 - 'predict.py' bagging of 3 models to make predictions on the test set
 
- * Those scripts are templates to adapt for each model. Customized versions relative to my project are available
+. * Those scripts are templates to adapt for each model. Customized versions relative to my project are available
 in the folder 'customized_version'.
 
 You will have to use the included 'train_and_test_data_labels_safe.csv` file in combination with the dataset.
